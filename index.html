@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff9f5">
+  <meta name="description" content="Discover fashion and beauty favourites at SheSlay.">
+  <title>SheSlay — Beauty, Style &amp; You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Allura&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement">A little something lovely, just for you <span>✦</span></div>
+  <header class="site-header">
+    <div class="header-left">
+      <details class="category-menu">
+        <summary>Categories <span class="chevron" aria-hidden="true">⌄</span></summary>
+        <div class="menu-panel" id="category-menu-items"></div>
+      </details>
+      <button class="view-all nav-view-all" type="button" data-category="all">View all</button>
+    </div>
+    <a class="brand" href="#top" aria-label="SheSlay home"><svg viewBox="0 0 190 60" role="img" aria-labelledby="logo-title"><title id="logo-title">SheSlay</title><text x="4" y="43" textLength="147" lengthAdjust="spacingAndGlyphs">SheSlay</text><path d="M149 34 C158 35 163 43 158 49 C154 54 164 55 172 46 C179 37 181 24 177 12"/></svg></a>
+    <button class="cart-trigger" type="button" aria-label="Open shopping cart, 0 items">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="9.5" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+      <span class="cart-word">Cart</span><span class="cart-count" aria-live="polite">0</span>
+    </button>
+  </header>
+  <main id="top">
+    <section class="hero" aria-label="Seasonal highlights">
+      <div class="slides" id="slides"></div>
+      <button class="slide-arrow prev" aria-label="Previous slide" type="button">‹</button>
+      <button class="slide-arrow next" aria-label="Next slide" type="button">›</button>
+      <div class="slide-dots" role="group" aria-label="Choose a slide"></div>
+    </section>
+    <section class="categories section-wrap" aria-labelledby="categories-heading">
+      <div class="section-heading"><p class="eyebrow">A world of lovely</p><h2 id="categories-heading">Shop by Category</h2><span class="heading-rule"></span></div>
+      <div class="category-grid" id="category-grid"></div>
+    </section>
+    <section class="products-section section-wrap" id="products" aria-labelledby="products-heading">
+      <div class="products-heading-row">
+        <div class="section-heading left-heading"><p class="eyebrow">The good things</p><h2 id="products-heading">Featured Products</h2><span class="heading-rule"></span></div>
+        <label class="sort-control">Sort <select id="sort-products" aria-label="Sort products"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A to Z</option></select></label>
+      </div>
+      <p class="filter-note" id="filter-note" aria-live="polite">Showing all favourites</p>
+      <div class="product-grid" id="product-grid"></div>
+      <p class="empty-state" id="empty-state" hidden>New favourites are coming soon. Check back shortly!</p>
+      <button class="load-more" id="load-more" type="button" hidden>Load more</button>
+    </section>
+    <section class="newsletter"><p class="eyebrow">A note from us</p><h2>Make room for a little lovely.</h2><p>Thoughtful finds for your everyday glow and style.</p><button type="button" class="newsletter-button" data-category="all">Explore the collection</button></section>
+  </main>
+  <footer><a class="footer-brand" href="#top">SheSlay</a><p>Beauty, style &amp; a little everyday magic.</p><small>© <span id="year"></span> SheSlay. Product prices are sample demonstration prices in USD.</small></footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <div class="drawer-backdrop" hidden></div>
+  <aside class="cart-drawer" aria-labelledby="cart-heading" aria-hidden="true" tabindex="-1">
+    <div class="drawer-heading"><div><p class="eyebrow">Your little edit</p><h2 id="cart-heading">Your Cart <span class="drawer-count">(0)</span></h2></div><button class="close-cart" type="button" aria-label="Close cart">×</button></div>
+    <div class="cart-items"></div>
+    <div class="cart-footer"><div><span>Subtotal</span><strong class="cart-subtotal">$0.00</strong></div><p>Sample prices shown in USD. Checkout is not enabled.</p></div>
+  </aside>
+</body>
+</html>
+
