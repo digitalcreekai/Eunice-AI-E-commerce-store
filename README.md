@@ -1,6 +1,6 @@
 # SheSlay
 
-A responsive fashion and beauty product listing site built with plain HTML, CSS, and JavaScript. The site includes a promotional slideshow, six category filters, a data-driven catalog of 30 products, sorting, load-more behavior, and a working demonstration cart. No server, checkout, or payment collection is included.
+A responsive fashion and beauty product listing site built with HTML, CSS, JavaScript, and a small Next.js static-export wrapper. The site includes a promotional slideshow, six category filters, a data-driven catalog of 30 products, sorting, load-more behavior, and a working demonstration cart. It has no backend, checkout, or payment collection.
 
 ## Files
 
@@ -9,12 +9,17 @@ index.html       Page structure
 styles.css       Colors, layout, responsive rules, and interaction states
 script.js        Product catalog, filters, slideshow, and cart behavior
 images/          Local category artwork, slideshow image, and missing-photo fallback
+app/             Next.js static-export entry point, rendering the existing page
+public/          Static CSS, JavaScript, and image assets served by Next.js
+out/             Generated static site from the Next.js build (not source)
+package.json     Next.js scripts and dependencies
+pnpm-lock.yaml   Locked dependency versions
 README.md        This guide
 ```
 
 ## Run locally
 
-Open `index.html` in a current browser. For a local web server, open a terminal in this folder and run `python -m http.server 8000`, then visit `http://localhost:8000`. The Google Fonts link needs internet; the page uses serif and sans-serif fallbacks when offline.
+Install Node.js 20.9 or newer and pnpm, then run `pnpm install` followed by `pnpm dev` in this folder to preview the Next.js version locally. Run `pnpm build` to generate a static site in `out/`. The original `index.html` can still be opened directly for a quick preview. Google Fonts needs internet; system font fallbacks are included.
 
 ## Product counts
 
@@ -97,8 +102,8 @@ Original product Pinterest references (in catalog order; inaccessible and not us
 
 ## Deploy with Vercel
 
-This is a static HTML, CSS, and JavaScript site. It has no build command or backend requirement. The project root is this folder because `index.html`, `styles.css`, and `script.js` are alongside one another.
+The project is configured as a Next.js static export. Its Next.js app reads the existing `index.html` body and serves the existing site assets; the visual design and storefront interactions remain in the original HTML, CSS, and JavaScript files. `next.config.js` sets `output: "export"`, so `pnpm build` creates the static site in `out/` without requiring a runtime backend.
 
-To import the existing GitHub repository into Vercel, choose **Add New → Project**, select `digitalcreekai/Eunice-AI-E-commerce-store`, and set the Root Directory to the folder containing this `index.html` (the repository root when these files are committed there). Choose **Other** as the framework preset, leave the Build Command empty, and leave the Output Directory empty or set it to `.`. Select **Deploy**. Vercel will provide a `vercel.app` URL after the deployment succeeds.
+To import the existing GitHub repository into Vercel, choose **Add New → Project**, select `digitalcreekai/Eunice-AI-E-commerce-store`, and set the Root Directory to the repository root. Choose **Next.js** as the framework preset (or keep auto-detection), use `pnpm install` as the install command, and `pnpm build` as the build command. Leave Output Directory on the framework default so it uses the static export in `out/`. Select **Deploy**. Vercel will provide a `vercel.app` URL after the deployment succeeds.
 
 Product photos are mostly loaded from brand and retailer image hosts, with a local fallback image for failed requests. Google Fonts also uses an external connection; system font fallbacks are defined for offline use.
